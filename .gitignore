@@ -1,0 +1,7 @@
+target/
+.idea/
+*.iml
+
+# Informe del laboratorio (no se sube al repo)
+*.docx
+.~lock.*#
