@@ -16,13 +16,17 @@ public class ProductService {
     }
 
     public Product save(Product product) {
+        validarProducto(product);
+        return productRepository.save(product);
+    }
+
+    private void validarProducto(Product product) {
         if (product.getPrice() <= 0) {
             throw new IllegalArgumentException("El precio debe ser mayor a cero");
         }
         if (product.getStock() < 0) {
             throw new IllegalArgumentException("El stock no puede ser negativo");
         }
-        return productRepository.save(product);
     }
 
     public List<Product> findAll() {
